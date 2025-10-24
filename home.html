@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Quadratic Homework — Solutions</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg1: #0f172a;
+      --bg2: #0b1220;
+      --card: rgba(255,255,255,0.04);
+      --accent: #7c3aed;
+      --glass: rgba(255,255,255,0.06);
+      color-scheme: dark;
+    }
+    *{box-sizing:border-box}
+    body{font-family:Inter,system-ui,Segoe UI,Roboto,"Helvetica Neue",Arial; margin:0; min-height:100vh; background:linear-gradient(160deg,var(--bg1),var(--bg2)); color:#e6eef8; display:flex; align-items:center; justify-content:center; padding:36px}
+    .wrap{max-width:980px; width:100%}
+    header{display:flex; gap:16px; align-items:center; margin-bottom:22px}
+    .logo{width:72px; height:72px; border-radius:12px; background:linear-gradient(135deg,#6ee7b7,#7c3aed); display:flex; align-items:center; justify-content:center; font-weight:800; color:#03111a; font-size:26px; box-shadow:0 8px 30px rgba(124,58,237,0.18)}
+    h1{margin:0; font-size:22px}
+    p.lead{margin:4px 0 0 0; opacity:0.85}
+
+    .grid{display:grid; grid-template-columns:repeat(2,1fr); gap:18px}
+    @media (max-width:760px){.grid{grid-template-columns:1fr}}
+
+    .card{background:var(--card); padding:18px; border-radius:12px; box-shadow:0 6px 20px rgba(2,6,23,0.6); border:1px solid rgba(255,255,255,0.03)}
+    .problem-title{display:flex; justify-content:space-between; align-items:center}
+    .math{font-family:Georgia, 'Times New Roman', serif; font-size:20px; background:linear-gradient(90deg,#dbeafe,#e9d5ff); -webkit-background-clip:text; background-clip:text; color:transparent}
+    .steps{margin-top:12px; line-height:1.5; font-size:15px; color:#cfe6ff}
+
+    .badge{padding:6px 10px; background:linear-gradient(90deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01)); border-radius:999px; border:1px solid rgba(255,255,255,0.04); font-weight:600}
+
+    .answer{margin-top:12px; padding:10px; background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border-radius:8px; border-left:4px solid var(--accent); font-weight:700}
+
+    .controls{display:flex; gap:8px; margin-top:12px}
+    .btn{background:var(--glass); color:inherit; border:1px solid rgba(255,255,255,0.04); padding:8px 12px; border-radius:8px; cursor:pointer}
+    .btn:hover{transform:translateY(-3px); transition:all .18s}
+    .small{font-size:13px; padding:6px 8px}
+
+    footer{margin-top:18px; display:flex; gap:8px; justify-content:space-between; align-items:center}
+    .note{opacity:0.75; font-size:13px}
+
+    .shine{position:absolute; pointer-events:none; inset:0; background:radial-gradient(600px 200px at 10% 10%, rgba(255,255,255,0.02), transparent 10%), radial-gradient(600px 200px at 90% 90%, rgba(124,58,237,0.04), transparent 8%)}
+
+    /* UI for toggles */
+    .hidden{display:none}
+    .toggle-link{color:#bcd6ff; text-decoration:underline dotted; cursor:pointer; font-size:13px}
+
+    .download{background:linear-gradient(90deg,var(--accent),#06b6d4); color:#04111a; border:none}
+    .print{background:linear-gradient(90deg,#f59e0b,#fb7185); color:#04111a; border:none}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div style="position:relative">
+      <header>
+        <div class="logo">Q</div>
+        <div>
+          <h1>Quadratic Homework — Solutions</h1>
+          <p class="lead">Clear step-by-step solutions for each exercise. Click "Show steps" to reveal the method.</p>
+        </div>
+      </header>
+
+      <div class="grid">
+        <!-- Problem 1 -->
+        <section class="card">
+          <div class="problem-title">
+            <div>
+              <div class="badge">Problem 1</div>
+              <div class="math">4x² - 8x = 0</div>
+            </div>
+            <div class="badge">Easy</div>
+          </div>
+
+          <div class="steps" id="steps1">
+            <strong>Method (factoring):</strong>
+            <ol>
+              <li>Factor out the common term: <code>4x(x - 2) = 0</code>.</li>
+              <li>Set each factor to zero: <code>4x = 0</code> or <code>x - 2 = 0</code>.</li>
+              <li>Solve: <code>x = 0</code> or <code>x = 2</code>.</li>
+            </ol>
+          </div>
+
+          <div class="answer">Answer: <span style="color:var(--accent);">x = 0, 2</span></div>
+
+          <div class="controls">
+            <button class="btn small" onclick="toggleDetails(1)">Hide steps</button>
+          </div>
+        </section>
+
+        <!-- Problem 2 -->
+        <section class="card">
+          <div class="problem-title">
+            <div>
+              <div class="badge">Problem 2</div>
+              <div class="math">x² - 25 = 0</div>
+            </div>
+            <div class="badge">Use different method</div>
+          </div>
+
+          <div class="steps hidden" id="steps2">
+            <strong>Method (square root):</strong>
+            <ol>
+              <li>Move constant to the right: <code>x² = 25</code>.</li>
+              <li>Take square root of both sides: <code>x = ±√25</code>.</li>
+              <li>Simplify: <code>x = ±5</code>.</li>
+            </ol>
+          </div>
+
+          <div class="answer">Answer: <span style="color:var(--accent);">x = -5, 5</span></div>
+
+          <div class="controls">
+            <button class="btn small" onclick="toggleDetails(2)">Show steps</button>
+            <button class="btn small" onclick="explainAlt()">Why use √ method?</button>
+          </div>
+        </section>
+
+        <!-- Problem 3 -->
+        <section class="card">
+          <div class="problem-title">
+            <div>
+              <div class="badge">Problem 3</div>
+              <div class="math">6x² = 0</div>
+            </div>
+            <div class="badge">One root</div>
+          </div>
+
+          <div class="steps" id="steps3">
+            <strong>Method:</strong>
+            <ol>
+              <li>Divide both sides by 6: <code>x² = 0</code>.</li>
+              <li>Take square root: <code>x = 0</code>.</li>
+            </ol>
+          </div>
+
+          <div class="answer">Answer: <span style="color:var(--accent);">x = 0</span></div>
+
+          <div class="controls">
+            <button class="btn small" onclick="toggleDetails(3)">Hide steps</button>
+          </div>
+        </section>
+
+        <!-- Problem 4 -->
+        <section class="card">
+          <div class="problem-title">
+            <div>
+              <div class="badge">Problem 4</div>
+              <div class="math">x² + 16 = 0</div>
+            </div>
+            <div class="badge">No real roots</div>
+          </div>
+
+          <div class="steps hidden" id="steps4">
+            <strong>Quick check:</strong>
+            <ol>
+              <li>Move constant: <code>x² = -16</code>.</li>
+              <li>Since the right-hand side is negative, there are no real numbers whose square is negative.</li>
+              <li>Therefore, <em>no real solution</em>.</li>
+            </ol>
+          </div>
+
+          <div class="answer">Answer: <span style="color:var(--accent);">No real solutions (нет действительных корней)</span></div>
+
+          <div class="controls">
+            <button class="btn small" onclick="toggleDetails(4)">Show check</button>
+          </div>
+        </section>
+
+      </div>
+
+      <footer>
+        <div class="note">Teacher's copy • Clean, printable, and interactive — ideal for homework review.</div>
+        <div>
+          <button class="btn download" onclick="downloadHTML()">Download .html</button>
+          <button class="btn print" onclick="window.print()">Print</button>
+        </div>
+      </footer>
+
+      <div class="shine"></div>
+    </div>
+  </div>
+
+  <script>
+    function toggleDetails(n){
+      const el = document.getElementById('steps'+n);
+      if(!el) return;
+      if(el.classList.contains('hidden')) el.classList.remove('hidden');
+      else el.classList.add('hidden');
+    }
+
+    function explainAlt(){
+      alert('Using the square-root method is direct for equations of the form x^2 = a — it is the fastest way to see both + and - roots.');
+    }
+
+    function downloadHTML(){
+      const header = '<!doctype html>\n';
+      const html = document.documentElement.outerHTML;
+      const blob = new Blob([header + html], {type: 'text/html'});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'quadratic-homework-solutions.html';
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(url);
+    }
+  </script>
+</body>
+</html>
